@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><title>Mister</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f8a4c"><meta name="apple-mobile-web-app-title" content="Mister"><meta name="mobile-web-app-capable" content="yes">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--bg:#f2f4f2;--card:#fff;--tx:#14201a;--mu:#6b7a72;--ac:#1f8a4c;--ln:#e0e6e2;--rd:#d64545;--yl:#d9a400}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1512;--card:#19221d;--tx:#eaf1ed;--mu:#8fa198;--ac:#3fc07a;--ln:#26332c}}
+:root[data-theme="dark"]{--bg:#0f1512;--card:#19221d;--tx:#eaf1ed;--mu:#8fa198;--ac:#3fc07a;--ln:#26332c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+main{padding:12px 14px 100px;max-width:640px;margin:auto}
+h1{font-size:28px;margin:6px 0 12px}h2{font-size:18px;margin:0}h3{font-size:14px;margin:18px 0 6px;color:var(--mu);text-transform:uppercase;letter-spacing:.04em}
+.mu{color:var(--mu);font-size:14px}.row,.hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.ic{width:40px;height:40px;border-radius:12px;background:var(--card);font-size:20px}
+.btn{width:100%;padding:13px;border-radius:12px;background:var(--ac);color:#fff;font-weight:600;margin:8px 0}
+.btn.sec{background:var(--card);color:var(--tx);border:1px solid var(--ln)}.btn.dg{background:var(--rd)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:10px}
+.cal span{text-align:center;font-size:12px;color:var(--mu)}
+.d{aspect-ratio:1;background:var(--card);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;font-size:15px;border:2px solid transparent}
+.d u{text-decoration:none;font-size:9px;font-weight:500;color:var(--mu);height:11px}
+.d.sc{background:color-mix(in srgb,var(--ac) 16%,var(--card))}.d.rc{background:var(--ac);color:#fff}.d.rc u{color:#fff}.d.td{border-color:var(--tx)}
+.card{background:var(--card);border-radius:14px;padding:12px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.big{font-weight:700;font-size:17px}.badge{padding:3px 9px;border-radius:99px;font-size:12px;font-weight:700;background:var(--ln)}
+.V{background:var(--ac);color:#fff}.N{background:var(--yl);color:#fff}.S{background:var(--rd);color:#fff}
+.pr,.ev,.sub{background:var(--card);border-radius:12px;padding:10px 12px;margin-bottom:6px}
+.nm{font-weight:600;margin-bottom:6px}
+.sg{display:flex;background:var(--bg);border-radius:10px;padding:3px;gap:3px}
+.sg button{flex:1;padding:8px 4px;border-radius:8px;font-size:14px}
+.sg button.on{background:var(--tx);color:var(--bg);font-weight:600}.sg button.on.g{background:var(--ac);color:#fff}.sg button.on.r{background:var(--rd);color:#fff}
+.chs{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.ch{padding:8px 12px;border-radius:99px;background:var(--bg);border:1px solid var(--ln);font-size:14px}.ch.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);margin:4px 0 8px}
+textarea{height:110px;resize:none;font-size:13px}
+label{font-size:13px;color:var(--mu);display:block;margin-top:6px}
+.st{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:14px}.st button{width:32px;height:32px;border-radius:8px;background:var(--bg);font-size:18px}.st b{min-width:16px;text-align:center}
+.sub{display:grid;grid-template-columns:1fr 1fr 64px 32px;gap:6px;align-items:center}.sub *{margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kp{background:var(--card);border-radius:14px;padding:12px}.kp b{font-size:26px;display:block}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{padding:8px 4px;text-align:center}th{color:var(--mu);font-weight:500;font-size:12px}td:first-child,th:first-child{text-align:left;padding-left:10px}
+.tb{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);z-index:10}
+.tb button{flex:1;padding:8px 0 6px;font-size:11px;color:var(--mu)}.tb button span{display:block;font-size:22px}.tb button.on{color:var(--ac);font-weight:700}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:flex;align-items:flex-end}
+.sheet{width:100%;max-height:93%;overflow:auto;background:var(--bg);border-radius:20px 20px 0 0;padding:16px 14px calc(24px + env(safe-area-inset-bottom,0px));max-width:640px;margin:auto}
+.fld{position:relative;aspect-ratio:2/3;max-width:380px;margin:8px auto;border-radius:12px;overflow:hidden;background:repeating-linear-gradient(#2f8f57 0 10%,#2a8450 10% 20%);user-select:none;-webkit-user-select:none}
+.fld svg.ln{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.sh,.es{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;width:64px;font-size:10px;color:#fff;text-shadow:0 1px 2px #000}
+.sh{touch-action:none;cursor:grab}.sh span{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.es i{width:30px;height:30px;border:2px dashed #fffb;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px}
+.lg{width:84px;height:84px;flex:none;border-radius:50%;background:var(--ln);display:grid;place-items:center;font-size:38px;overflow:hidden}
+.hero{display:flex;gap:14px;align-items:center;margin:6px 0 14px}
+</style></head><body>
+<main id="v"></main><div id="m"></div>
+<nav class="tb"><button data-t="ho" onclick="go('ho')"><span>🏠</span>Home</button><button data-t="al" onclick="go('al')"><span>🗓</span>Allenamenti</button><button data-t="pa" onclick="go('pa')"><span>⚽</span>Partite</button><button data-t="ri" onclick="go('ri')"><span>📊</span>Risultati</button><button data-t="ro" onclick="go('ro')"><span>👥</span>Rosa</button></nav>
+<script>
+let S={pl:[],tr:{days:[2,4],time:'18:30',mode:'season',per:[]},se:{},ma:[]};
+try{const r=localStorage.getItem('mister');if(r)S=JSON.parse(r)}catch(e){}
+function norm(){S.team=S.team||{};S.lay=S.lay||{};S.ma.forEach(m=>m.pos=m.pos||{})}norm();
+const save=()=>{try{localStorage.setItem('mister',JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s),uid=()=>Math.random().toString(36).slice(2,9);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const R=['Portiere','Difensore','Centrocampista','Esterno','Trequartista','Attaccante'],PI=['Destro','Sinistro','Ambidestro'];
+const CA=['Infortunio','Malattia','Motivi personali/familiari','Non disponibile','Visita medica','Motivi scolastici'];
+const GG=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'],MI=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+const MOD=['4-3-3','4-2-3-1','4-4-2','5-3-2','5-4-1','4-1-4-1','4-3-1-2','4-4-1-1','3-5-2','3-4-3','3-4-2-1','Altro'];
+let tab='ho',cur=new Date(),mv=null,armed=0,dr=null;
+const P=id=>S.pl.find(p=>p.id==id),pn=id=>{const p=P(id);return p?esc(p.nome+' '+p.cognome):'—'};
+const M=id=>S.ma.find(m=>m.id==id),dfmt=ds=>{const d=new Date(ds+'T12:00');return GG[d.getDay()]+' '+d.getDate()+'/'+(d.getMonth()+1)};
+function sheet(h){const o=$('.sheet'),s=o?o.scrollTop:0;$('#m').innerHTML=h?`<div class="ov" onclick="if(event.target==this)closeM()"><div class="sheet">${h}</div></div>`:'';const n=$('.sheet');if(n)n.scrollTop=s}
+const reopen=()=>mv&&mv(),closeM=()=>{mv=null;armed=0;sheet('');render()};
+const hd=t=>`<div class="hd"><h2>${t}</h2><button class="ic" onclick="closeM()">✕</button></div>`;
+function render(){$('#v').innerHTML=({ho:vHo,al:vAl,pa:vPa,ri:vRi,ro:vRo})[tab]();document.querySelectorAll('.tb button').forEach(b=>b.classList.toggle('on',b.dataset.t==tab))}
+function go(t){tab=t;render();scrollTo(0,0)}
+/* ALLENAMENTI */
+function sch(ds){const w=new Date(ds+'T12:00').getDay();if(S.tr.mode=='per')for(const p of S.tr.per)if(p.a&&p.b&&p.a<=ds&&ds<=p.b)return p.days.includes(w)?p.time:null;return S.tr.days.includes(w)?S.tr.time:null}
+const mo=d=>{cur=new Date(cur.getFullYear(),cur.getMonth()+d,1);render()};
+function vAl(){const y=cur.getFullYear(),m=cur.getMonth(),off=(new Date(y,m,1).getDay()+6)%7,n=new Date(y,m+1,0).getDate(),td=iso(new Date());let c='<i></i>'.repeat(off);
+for(let d=1;d<=n;d++){const ds=iso(new Date(y,m,d)),t=sch(ds),se=S.se[ds];c+=`<b class="d${ds==td?' td':''}${t?' sc':''}${se&&Object.keys(se).length?' rc':''}" onclick='dayM("${ds}")'>${d}<u>${t||''}</u></b>`}
+const st=S.pl.map(p=>{let a=0,b=0;Object.values(S.se).forEach(s=>{const x=s[p.id];if(x)x.s=='p'?a++:b++});return{p,a,b}});
+return `<h1>Allenamenti</h1><div class="row"><button class="ic" onclick="mo(-1)">‹</button><h2>${MI[m]} ${y}</h2><button class="ic" onclick="mo(1)">›</button></div>
+<div class="cal">${['L','M','M','G','V','S','D'].map(x=>`<span>${x}</span>`).join('')}${c}</div>
+<p class="mu">Verde chiaro: allenamento previsto · verde pieno: presenze registrate. Tocca un giorno per segnare presenze.</p>
+<button class="btn sec" onclick="trM()">⚙ Programma allenamenti</button>
+<h3>Presenze stagione</h3>${st.length?st.map(({p,a,b})=>`<div class="card"><span>${esc(p.nome+' '+p.cognome)}</span><span class="mu">${a} pres · ${b} ass · ${a+b?Math.round(a/(a+b)*100):0}%</span></div>`).join(''):'<p class="mu">Nessun giocatore in rosa.</p>'}`}
+function dayM(ds){mv=()=>dayM(ds);const se=S.se[ds]||{},t=sch(ds);let np=0,na=0;Object.values(se).forEach(x=>x.s=='p'?np++:na++);
+sheet(hd(dfmt(ds))+`<p class="mu">${t?'Allenamento alle '+t:'Nessun allenamento in programma'} · ${np} presenti · ${na} assenti</p><button class="btn sec" onclick='allP("${ds}")'>Tutti presenti</button>`+(S.pl.length?S.pl.map(p=>{const x=se[p.id]||{};return `<div class="pr"><div class="nm">${esc(p.nome+' '+p.cognome)}</div><div class="sg"><button class="${x.s=='p'?'on g':''}" onclick='setA("${ds}","${p.id}","p")'>Presente</button><button class="${x.s=='a'?'on r':''}" onclick='setA("${ds}","${p.id}","a")'>Assente</button></div>${x.s=='a'?`<select onchange='setC("${ds}","${p.id}",this.value)'><option value="">Causa assenza…</option>${CA.map(c=>`<option${x.c==c?' selected':''}>${c}</option>`).join('')}</select>`:''}</div>`}).join(''):'<p class="mu">Aggiungi prima i giocatori nella Rosa.</p>'))}
+function setA(ds,id,v){const s=S.se[ds]=S.se[ds]||{};if(s[id]&&s[id].s==v)delete s[id];else s[id]={s:v,c:''};save();reopen()}
+function setC(ds,id,v){S.se[ds][id].c=v;save()}
+function allP(ds){const s=S.se[ds]=S.se[ds]||{};S.pl.forEach(p=>s[p.id]={s:'p',c:''});save();reopen()}
+const tog=(a,w)=>{const i=a.indexOf(w);i<0?a.push(w):a.splice(i,1)};
+const dch=(days,fn)=>[1,2,3,4,5,6,0].map(w=>`<button class="ch${days.includes(w)?' on':''}" onclick="${fn}(${w})">${GG[w]}</button>`).join('');
+function trM(){mv=trM;const t=S.tr;
+sheet(hd('Programma allenamenti')+`<label>Giorni di allenamento</label><div class="chs">${dch(t.days,'tgD')}</div><label>Orario</label><input type="time" value="${t.time}" onchange="S.tr.time=this.value;save()">
+<label>Validità delle scelte</label><div class="sg"><button class="${t.mode=='season'?'on':''}" onclick="setMode('season')">Tutta la stagione</button><button class="${t.mode=='per'?'on':''}" onclick="setMode('per')">Con periodi</button></div>
+${t.mode=='per'?`<p class="mu">Nei periodi indicati vale il loro programma; fuori dai periodi vale quello base.</p>`+t.per.map((p,i)=>`<div class="pr"><label>Dal</label><input type="date" value="${p.a}" onchange="tpS(${i},'a',this.value)"><label>Al</label><input type="date" value="${p.b}" onchange="tpS(${i},'b',this.value)"><div class="chs">${dch(p.days,'tpD('+i+',')}</div><input type="time" value="${p.time}" onchange="tpS(${i},'time',this.value)"><button class="btn dg" onclick="delP(${i})">Elimina periodo</button></div>`).join('')+`<button class="btn sec" onclick="addP()">+ Aggiungi periodo</button>`:''}
+<button class="btn" onclick="closeM()">Fatto</button>`)}
+const tgD=w=>{tog(S.tr.days,w);save();trM()},setMode=m=>{S.tr.mode=m;save();trM()},tpS=(i,k,v)=>{S.tr.per[i][k]=v;save()};
+const tpD=(i,w)=>{tog(S.tr.per[i].days,w);save();trM()},delP=i=>{S.tr.per.splice(i,1);save();trM()};
+const addP=()=>{S.tr.per.push({a:'',b:'',days:[...S.tr.days],time:S.tr.time});save();trM()};
+/* PARTITE */
+function vPa(){const L=[...S.ma].sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
+return `<h1>Partite</h1><button class="btn" onclick="addMa()">+ Nuova partita</button>`+(L.length?L.map(m=>{const ok=m.done&&m.gf!==''&&m.ga!=='',e=ok?(m.gf>m.ga?'V':m.gf<m.ga?'S':'N'):'';return `<div class="card" onclick='maM("${m.id}")'><div><div class="mu">${dfmt(m.date)} · ${m.time} · ${m.home?'Casa':'Trasferta'}</div><div class="big">vs ${esc(m.opp)||'Avversario'}</div><div class="mu">${m.mod} · ${m.st.length} tit · ${m.ri.length} ris</div></div>${ok?`<span class="badge ${e}">${m.gf}–${m.ga}</span>`:'<span class="badge">Da giocare</span>'}</div>`}).join(''):'<p class="mu">Nessuna partita inserita.</p>')}
+function addMa(){const m={id:uid(),date:iso(new Date()),time:'15:00',opp:'',home:true,len:45,mod:'4-4-2',pos:{},st:[],ri:[],done:false,gf:'',ga:'',subs:[],ev:{}};S.ma.push(m);save();maM(m.id)}
+function mf(id,k,v,r){const m=M(id);if(k=='len')v=+v||45;if(k=='gf'||k=='ga')v=v===''?'':+v;m[k]=v;if(k=='mod')m.pos={};save();if(r)reopen()}
+function setL(id,pid,r){const m=M(id);m.st=m.st.filter(x=>x!=pid);m.ri=m.ri.filter(x=>x!=pid);if(r=='t')m.st.push(pid);if(r=='r')m.ri.push(pid);m.subs=m.subs.filter(s=>m.st.includes(s.o)&&m.ri.includes(s.i)||!s.o&&!s.i||(!m.st.includes(s.o)&&s.o===''));save();reopen()}
+const addS=id=>{M(id).subs.push({o:'',i:'',m:''});save();reopen()},subS=(id,i,k,v)=>{M(id).subs[i][k]=k=='m'?(v===''?'':+v):v;save()},delS=(id,i)=>{M(id).subs.splice(i,1);save();reopen()};
+const E=(m,p)=>m.ev[p]=m.ev[p]||{};
+const evd=(id,p,k,d)=>{const e=E(M(id),p);e[k]=Math.max(0,(e[k]||0)+d);save();reopen()};
+const evt=(id,p,k)=>{const e=E(M(id),p);e[k]=!e[k];if(k=='y'&&e.y)e.yy=false;if(k=='yy'&&e.yy)e.y=false;save();reopen()};
+const evv=(id,p,v)=>{E(M(id),p).v=v===''?'':+v;save()};
+function delMa(id,b){if(!armed){armed=1;b.textContent='Tocca ancora per confermare';return}S.ma=S.ma.filter(m=>m.id!=id);closeM()}
+function maM(id){mv=()=>maM(id);const m=M(id);if(!m)return;
+const sg=(k,o,v)=>`<div class="sg">${o.map(([a,b])=>`<button class="${v===a?'on':''}" onclick='mf("${id}","${k}",${JSON.stringify(a)},1)'>${b}</button>`).join('')}</div>`;
+const conv=[...m.st,...m.ri],sel=(o,v)=>o.map(x=>`<option value="${x}"${v==x?' selected':''}>${pn(x)}</option>`).join('');
+sheet(hd('Partita')+`<h3>Preparazione</h3>
+<label>Avversario</label><input value="${esc(m.opp)}" onchange='mf("${id}","opp",this.value)'>
+<label>Data</label><input type="date" value="${m.date}" onchange='mf("${id}","date",this.value)'>
+<label>Ora</label><input type="time" value="${m.time}" onchange='mf("${id}","time",this.value)'>
+<label>Campo</label>${sg('home',[[true,'Casa'],[false,'Trasferta']],m.home)}
+<label>Durata di ogni tempo (minuti, 2 tempi)</label><input type="number" inputmode="numeric" value="${m.len}" onchange='mf("${id}","len",this.value)'>
+<label>Modulo</label><select onchange='mf("${id}","mod",this.value,1)'>${MOD.map(x=>`<option${m.mod==x?' selected':''}>${x}</option>`).join('')}</select>
+<h3>Formazione · ${m.st.length} titolari, ${m.ri.length} riserve</h3>
+${S.pl.length?S.pl.map(p=>{const r=m.st.includes(p.id)?'t':m.ri.includes(p.id)?'r':'';return `<div class="pr"><div class="nm">${esc(p.nome+' '+p.cognome)} <span class="mu">${p.ruolo}</span></div><div class="sg">${[['t','Titolare'],['r','Riserva'],['','Fuori']].map(([a,b])=>`<button class="${r==a?'on':''}" onclick='setL("${id}","${p.id}","${a}")'>${b}</button>`).join('')}</div></div>`}).join(''):'<p class="mu">Aggiungi prima i giocatori nella Rosa.</p>'}
+<h3>Disposizione in campo · ${m.mod}</h3>${fieldH(m)}<h3>Dopo la partita</h3>${sg('done',[[false,'Da giocare'],[true,'Giocata']],m.done)}
+<label>Risultato (noi – avversario)</label><div style="display:flex;gap:8px"><input type="number" inputmode="numeric" value="${m.gf}" onchange='mf("${id}","gf",this.value)'><input type="number" inputmode="numeric" value="${m.ga}" onchange='mf("${id}","ga",this.value)'></div>
+<h3>Sostituzioni</h3>${m.subs.map((s,i)=>`<div class="sub"><select onchange="subS('${id}',${i},'o',this.value)"><option value="">Esce</option>${sel(m.st,s.o)}</select><select onchange="subS('${id}',${i},'i',this.value)"><option value="">Entra</option>${sel(m.ri,s.i)}</select><input type="number" inputmode="numeric" placeholder="Min" value="${s.m}" onchange="subS('${id}',${i},'m',this.value)"><button onclick="delS('${id}',${i})">✕</button></div>`).join('')}<button class="btn sec" onclick='addS("${id}")'>+ Sostituzione</button>
+<h3>Giocatori impiegati</h3>${conv.length?conv.map(p=>{const e=m.ev[p]||{},b=(k,t)=>`<button class="ch${e[k]?' on':''}" onclick="evt('${id}','${p}','${k}')">${t}</button>`;return `<div class="ev"><div class="nm">${pn(p)}</div><div class="st">Gol <button onclick="evd('${id}','${p}','g',-1)">−</button><b>${e.g||0}</b><button onclick="evd('${id}','${p}','g',1)">+</button>&nbsp; Autogol <button onclick="evd('${id}','${p}','og',-1)">−</button><b>${e.og||0}</b><button onclick="evd('${id}','${p}','og',1)">+</button></div><div class="chs">${b('y','🟨 Ammonizione')}${b('yy','🟨🟨 Doppia amm.')}${b('r','🟥 Espulsione')}</div><label>Voto prestazione</label><input type="number" inputmode="decimal" step="0.5" min="1" max="10" value="${e.v==null?'':e.v}" onchange="evv('${id}','${p}',this.value)"></div>`}).join(''):'<p class="mu">Scegli titolari e riserve per registrare le azioni.</p>'}
+<button class="btn" onclick="closeM()">Chiudi</button><button class="btn dg" onclick='delMa("${id}",this)'>Elimina partita</button>`)}
+/* RISULTATI */
+function vRi(){const L=S.ma.filter(m=>m.done&&m.gf!==''&&m.ga!=='').sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+const st=f=>{const x={g:0,v:0,n:0,s:0,gf:0,gs:0};L.filter(f).forEach(m=>{x.g++;x.gf+=m.gf;x.gs+=m.ga;m.gf>m.ga?x.v++:m.gf<m.ga?x.s++:x.n++});x.p=x.v*3+x.n;return x};
+const T=st(()=>1),C=st(m=>m.home),F=st(m=>!m.home),av=(a,b)=>b?(a/b).toFixed(2):'–',rw=(n,x)=>`<tr><td>${n}</td><td>${x.g}</td><td>${x.v}</td><td>${x.n}</td><td>${x.s}</td><td>${x.gf}</td><td>${x.gs}</td><td><b>${x.p}</b></td></tr>`;
+const fm=L.slice(-5).map(m=>{const e=m.gf>m.ga?'V':m.gf<m.ga?'S':'N';return `<span class="badge ${e}">${e}</span>`}).join(' ');
+return `<h1>Risultati</h1>`+(L.length?`<div class="grid"><div class="kp"><b>${T.p}</b>Punti</div><div class="kp"><b>${av(T.p,T.g)}</b>Media punti</div><div class="kp"><b>${T.gf} / ${T.gs}</b>Gol fatti / subiti</div><div class="kp"><b>${av(T.gf,T.g)} / ${av(T.gs,T.g)}</b>Media gol fatti / subiti</div></div>
+<h3>Andamento</h3><table><tr><th></th><th>G</th><th>V</th><th>N</th><th>P</th><th>GF</th><th>GS</th><th>Pt</th></tr>${rw('Totale',T)}${rw('Casa',C)}${rw('Trasf.',F)}</table>
+<p class="mu">Media punti in casa ${av(C.p,C.g)} · in trasferta ${av(F.p,F.g)}</p><h3>Ultime 5</h3><div>${fm}</div>
+<h3>Partite giocate</h3>`+[...L].reverse().map(m=>{const e=m.gf>m.ga?'V':m.gf<m.ga?'S':'N';return `<div class="card"><div><div class="mu">${dfmt(m.date)} · ${m.home?'Casa':'Trasferta'}</div><div class="big">vs ${esc(m.opp)||'Avversario'}</div></div><span class="badge ${e}">${m.gf}–${m.ga}</span></div>`}).join(''):'<p class="mu">I risultati compariranno qui quando segni una partita come “Giocata” e inserisci il punteggio.</p>')}
+/* ROSA */
+function vRo(){const L=[...S.pl].sort((a,b)=>R.indexOf(a.ruolo)-R.indexOf(b.ruolo)||a.cognome.localeCompare(b.cognome));
+return `<h1>Rosa <span class="mu">(${L.length})</span></h1><button class="btn" onclick="plM()">+ Nuovo giocatore</button>`+(L.length?L.map(p=>`<div class="card" onclick='plM("${p.id}")'><div><div class="big">${esc(p.nome)} ${esc(p.cognome)}</div><div class="mu">${p.ruolo} · piede ${p.piede.toLowerCase()}</div></div><span class="mu">›</span></div>`).join(''):'<p class="mu">Nessun giocatore inserito.</p>')+`<button class="btn sec" style="margin-top:24px" onclick="bkM()">💾 Backup e ripristino</button>`}
+function plM(id){const ex=id&&P(id);dr=ex?{...ex}:{id:uid(),nome:'',cognome:'',ruolo:'Difensore',piede:'Destro'};mv=null;armed=0;
+sheet(hd(ex?'Modifica giocatore':'Nuovo giocatore')+`<label>Nome</label><input value="${esc(dr.nome)}" onchange="dr.nome=this.value.trim()"><label>Cognome</label><input value="${esc(dr.cognome)}" onchange="dr.cognome=this.value.trim()">
+<label>Ruolo</label><select onchange="dr.ruolo=this.value">${R.map(r=>`<option${dr.ruolo==r?' selected':''}>${r}</option>`).join('')}</select>
+<label>Piede utilizzato</label><select onchange="dr.piede=this.value">${PI.map(r=>`<option${dr.piede==r?' selected':''}>${r}</option>`).join('')}</select>
+<button class="btn" onclick="savePl()">Salva</button>${ex?`<button class="btn dg" onclick="delPl(this)">Elimina giocatore</button>`:''}`)}
+function savePl(){document.activeElement&&document.activeElement.blur();setTimeout(()=>{if(!dr.nome&&!dr.cognome)return;const i=S.pl.findIndex(p=>p.id==dr.id);i<0?S.pl.push(dr):S.pl[i]=dr;save();closeM()},50)}
+function delPl(b){if(!armed){armed=1;b.textContent='Tocca ancora per confermare';return}S.pl=S.pl.filter(p=>p.id!=dr.id);save();closeM()}
+function bkM(msg){mv=null;armed=0;sheet(hd('Backup e ripristino')+`<p class="mu">Copia il backup e incollalo in Note o in una e-mail a te stesso. Per ripristinare (anche su un altro telefono) incollalo nel secondo riquadro.</p><button class="btn" onclick="bkCopy()">Copia backup</button><textarea id="bk" readonly>${esc(JSON.stringify(S))}</textarea><h3>Ripristina</h3><textarea id="bi" placeholder="Incolla qui il backup"></textarea><button class="btn sec" onclick="bkImp(this)">Ripristina dati</button><p id="bm" class="mu">${msg||''}</p>`)}
+const bm=t=>{const e=$('#bm');if(e)e.textContent=t};
+function bkCopy(){const t=$('#bk');t.focus();t.select();t.setSelectionRange(0,t.value.length);let ok=false;try{ok=document.execCommand('copy')}catch(e){}try{navigator.clipboard&&navigator.clipboard.writeText(t.value);ok=true}catch(e){}bm(ok?'Copiato. Incollalo in Note o in una e-mail.':'Tieni premuto sul testo, scegli Seleziona tutto e poi Copia.')}
+function bkImp(b){let d;try{d=JSON.parse($('#bi').value.trim())}catch(e){}if(!d||!Array.isArray(d.pl)||!Array.isArray(d.ma)||!d.se||!d.tr){bm('Backup non valido.');return}
+if(!armed){armed=1;b.textContent='Sostituisce i dati attuali: tocca ancora per confermare';return}S=d;norm();save();closeM()}
+
+const K={Portiere:0,Difensore:1,Esterno:2,Centrocampista:3,Trequartista:4,Attaccante:5},ordS=m=>[...m.st].sort((a,b)=>(K[(P(a)||{}).ruolo]??9)-(K[(P(b)||{}).ruolo]??9));
+function lay(mod){const r=(mod.match(/\d/g)||[4,4,2]).map(Number),n=r.length,o=[[50,90]];r.forEach((c,i)=>{for(let j=0;j<c;j++)o.push([Math.round((j+1)*1000/(c+1))/10,Math.round((72-52*i/Math.max(1,n-1))*10)/10])});return o.slice(0,11)}
+function fieldH(m){const b=S.lay[m.mod]||lay(m.mod),o=ordS(m),col=S.team.col||'#1f8a4c';let h='';
+b.forEach((q,i)=>{const id=o[i],p=id&&P(id);if(p){const z=m.pos[id]||q;h+=`<div class="sh" data-i="${id}" data-m="${m.id}" style="left:${z[0]}%;top:${z[1]}%"><svg viewBox="0 0 40 36" width="40"><path d="M12 2L4 8L1 17L8 20L10 15V34H30V15L32 20L39 17L36 8L28 2Q20 9 12 2Z" fill="${col}" stroke="#fff" stroke-width="1.5"/><text x="20" y="27" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" stroke="#0006" stroke-width=".5">${i+1}</text></svg><span>${esc(p.cognome||p.nome)}</span></div>`}else h+=`<div class="es" style="left:${q[0]}%;top:${q[1]}%"><i>${i+1}</i></div>`});
+return `<div class="fld"><svg class="ln" viewBox="0 0 100 150" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width=".6"><rect x="3" y="3" width="94" height="144"/><line x1="3" y1="75" x2="97" y2="75"/><circle cx="50" cy="75" r="11"/><rect x="24" y="3" width="52" height="22"/><rect x="38" y="3" width="24" height="8"/><rect x="24" y="125" width="52" height="22"/><rect x="38" y="139" width="24" height="8"/></svg>${h}</div>
+<p class="mu">Trascina le maglie per spostarle (attacco in alto). ${m.st.length}/11 titolari.${S.lay[m.mod]?' Modulo personalizzato salvato.':''}</p><div class="grid"><button class="btn" onclick='saveLay("${m.id}")'>Salva modulo</button><button class="btn sec" onclick='resetLay("${m.id}")'>Ripristina base</button></div>`}
+function saveLay(id){const m=M(id),b=S.lay[m.mod]||lay(m.mod),o=ordS(m);S.lay[m.mod]=b.map((q,i)=>o[i]&&m.pos[o[i]]||q);save();reopen()}
+function resetLay(id){const m=M(id);delete S.lay[m.mod];m.pos={};save();reopen()}
+let dg=null;
+document.addEventListener('pointerdown',e=>{const s=e.target.closest('.sh');if(!s)return;dg={s,f:s.parentElement,id:s.dataset.i,m:s.dataset.m};s.setPointerCapture(e.pointerId);e.preventDefault()});
+document.addEventListener('pointermove',e=>{if(!dg)return;const r=dg.f.getBoundingClientRect();dg.x=Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100));dg.y=Math.max(4,Math.min(96,(e.clientY-r.top)/r.height*100));dg.s.style.left=dg.x+'%';dg.s.style.top=dg.y+'%'});
+document.addEventListener('pointerup',()=>{if(dg&&dg.x!=null){M(dg.m).pos[dg.id]=[Math.round(dg.x*10)/10,Math.round(dg.y*10)/10];save()}dg=null});
+const lgo=t=>`<div class="lg">${t.logo?`<img src="${t.logo}" alt="" style="width:100%;height:100%;object-fit:contain">`:'⚽'}</div>`;
+function vHo(){const t=S.team,L=S.ma.filter(m=>m.done&&m.gf!==''&&m.ga!==''),td=iso(new Date());let p=0;L.forEach(m=>p+=m.gf>m.ga?3:m.gf==m.ga?1:0);
+const nx=S.ma.filter(m=>!m.done&&m.date>=td).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))[0];
+return `<div class="hero">${lgo(t)}<div><h1 style="margin:0">${esc(t.nome)||'La tua squadra'}</h1><div class="mu">${[t.cat,t.camp,t.stag].filter(Boolean).map(esc).join(' · ')||'Imposta i dati della squadra'}</div></div></div>
+<button class="btn sec" onclick="teamM()">✏️ Modifica dati squadra</button>
+<div class="grid"><div class="kp"><b>${S.pl.length}</b>Giocatori</div><div class="kp"><b>${L.length}</b>Partite giocate</div><div class="kp"><b>${p}</b>Punti</div><div class="kp"><b>${S.ma.length-L.length}</b>Da giocare</div></div>
+<h3>Prossima partita</h3>${nx?`<div class="card" onclick='maM("${nx.id}")'><div><div class="mu">${dfmt(nx.date)} · ${nx.time} · ${nx.home?'Casa':'Trasferta'}</div><div class="big">vs ${esc(nx.opp)||'Avversario'}</div><div class="mu">${nx.mod}</div></div><span class="mu">›</span></div>`:'<p class="mu">Nessuna partita in programma.</p>'}`}
+let tm=null;
+function teamM(k){if(!k)tm={...S.team};mv=()=>teamM(1);const f=(l,key,ph)=>`<label>${l}</label><input value="${esc(tm[key])}" placeholder="${ph}" onchange="tm.${key}=this.value.trim()">`;
+sheet(hd('Dati squadra')+`<div style="display:grid;place-items:center">${lgo(tm)}</div><label>Stemma (immagine dalla galleria)</label><input type="file" accept="image/*" onchange="logoF(this)">${tm.logo?`<button class="btn sec" onclick="tm.logo='';teamM(1)">Rimuovi stemma</button>`:''}`+f('Nome squadra','nome','Es. ASD Cerveteri')+f('Categoria','cat','Es. Under 15')+f('Campionato','camp','Es. Regionale Elite')+f('Stagione sportiva','stag','2026/27')+`<label>Colore maglia in campo</label><input type="color" value="${tm.col||'#1f8a4c'}" onchange="tm.col=this.value" style="height:46px;padding:4px"><button class="btn" onclick="saveT()">Salva</button>`)}
+function logoF(i){const f=i.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const z=Math.min(1,256/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*z);c.height=Math.round(im.height*z);c.getContext('2d').drawImage(im,0,0,c.width,c.height);tm.logo=c.toDataURL('image/png');teamM(1)};im.src=rd.result};rd.readAsDataURL(f)}
+function saveT(){document.activeElement&&document.activeElement.blur();setTimeout(()=>{S.team=tm;save();closeM()},50)}
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')==0)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+render();
+</script></body></html>

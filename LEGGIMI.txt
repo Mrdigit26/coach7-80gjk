@@ -1,0 +1,5 @@
+MISTER - pacchetto offline (uso personale)
+File: index.html (l'app), manifest.webmanifest, sw.js, icon-192.png, icon-512.png, apple-touch-icon.png.
+Vanno caricati TUTTI nella stessa cartella dell'hosting, senza cartelle in mezzo.
+Aggiornamenti futuri: se modifichi index.html, cambia 'mister-v1' in 'mister-v2' dentro sw.js, altrimenti l'iPhone continua a usare la copia vecchia.
+I dati (giocatori, partite, stemma) restano nel browser del telefono, non nei file. Fai sempre il backup da Rosa > Backup e ripristino.
